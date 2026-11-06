@@ -473,3 +473,19 @@ TASKS = [
       "OT security engineer", "the broker separated from the firewall", "the DMZ is physical, not just logical",
       ["Second Pi acting as the firewall; broker on its own host", "nftables and docs updated; scan test re-run"], flags=["stretch"]),
 ]
+
+# Sprint 0 work finished after the first restructure (docs live in the owner's sketchbook, not in this repo).
+COMPLETED_LATER = {
+    "s0-secrets": "Template holds placeholders only; real secrets file is git-ignored in the sketchbook and in this repo.",
+    "s0-inventory": "Done 2026-11-02. Libraries: SSD1306 2.5.17, GFX 1.12.6, BusIO 1.17.4; core 3.3.8.",
+    "s0-pins": "Done 2026-11-02. No mismatches with the owner's wiring notes; strapping pins checked against the ESP32 datasheet v5.3.",
+    "s0-secreview": "Done 2026-11-02. Findings F1-F10 in the sketchbook's docs/SECURITY_NOTES.md; nothing fixed without approval.",
+    "s0-docs": "Done 2026-11-02. BOM part numbers still marked [FILL IN] where unknown.",
+    "s0-records": "Done 2026-11-02.",
+    "s0-testplan": "Done 2026-11-02. T-01 to T-18; only T-16 has a recorded result so far.",
+    "s0-answerkey": "Done 2026-11-02. Kept in the sketchbook, never in this repo.",
+}
+for _t in TASKS:
+    if _t["key"] in COMPLETED_LATER:
+        _t["done"] = True
+        _t["note"] = COMPLETED_LATER[_t["key"]]
