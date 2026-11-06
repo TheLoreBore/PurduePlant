@@ -139,24 +139,31 @@ Planned mapping of stages to foundational requirements:
 | Detection | TRE |
 | Safe state and scan tolerance | RA |
 
-## Roadmap (sprints)
-Sprints are **not time-based**. Each is gated by exit criteria, and the owner approves before
-the next starts. Each sprint is a GitHub **milestone** with a tracking **issue** whose
-checkboxes show progress.
+## Roadmap (milestones and sprints)
+Work is organized as **milestones (phases) > sprints > task issues**. Sprints are not time-based:
+each ends when its exit criteria are met and the owner approves. Every task is sized
+(S about 1 day, M about 3 days, L about 1 week) and labeled for where it can be done
+(remote, lab hardware, lab network). See [docs/PROJECT_MANAGEMENT.md](docs/PROJECT_MANAGEMENT.md)
+for the labels, issue format and how progress is tracked.
 
-| Sprint | Focus | Exit criterion (short) |
-|---|---|---|
-| 0 | Existing build baseline | Another person can rebuild and run it from the docs; all four levels pass a written test list |
-| 1 | Plant network and server foundation | ESP32 joins plant network; nmap from Kali sees only intended hosts/ports; firewall rules documented and tested |
-| 2 | Field node and sensors (stages 5-6) | Warming the sensor moves the dashboard; a bad sensor gives a fault state, not a bad reading; MQTT-browse challenge works |
-| 3 | L2 gateway and the writable point (stages 7-9) | Discovery, data-model, classification and over-exposure challenges pass end to end; each maps to a 62443 FR and ATT&CK name |
-| 4 | Physical process and safety interlock (stage 10) | Spoofed values cause the visible effect; the interlock trips and returns to a safe state; reset works |
-| 5 | Defender and scoreboard (stage 11) | Each attack raises the expected alert; no false alarms in a normal run; logs hold no secrets |
-| 6 | Hardened build (stage 12) | Replaying stages 5-10 fails as designed; a table maps each control to the attack it stops |
-| 7 | Demo, docs, polish | A first-time visitor sees an attack, the detection, and the hardened block |
+| Milestone | Sprint | Focus | Exit criterion (short) |
+|---|---|---|---|
+| **M1 - Baseline and platform** | 0 | Existing build baseline | Another person can rebuild and run it from the docs; all four levels pass a written test list |
+| | 1 | Plant network and server foundation | ESP32 joins the plant network; nmap from Kali sees only intended hosts and ports; firewall rules documented and tested |
+| **M2 - The plant** | 2 | Field node and sensors (stages 5-6) | Warming the sensor moves the dashboard; a bad sensor gives a fault state; MQTT-browse challenge works |
+| | 3 | L2 gateway and the writable point (stages 7-9) | Discovery, data-model, classification and over-exposure challenges pass end to end; each maps to a 62443 FR and ATT&CK name |
+| | 4 | Physical process and safety interlock (stage 10) | Spoofed values cause the visible effect; the interlock trips to a safe state; reset works |
+| **M3 - Defend and harden** | 5 | Defender and scoreboard (stage 11) | Each attack raises the expected alert; no false alarms; no secrets in logs |
+| | 6 | Hardened build (stage 12) | Replaying stages 5-10 fails as designed; each control maps to the attack it stops |
+| **M4 - Demo and release** | 7 | Demo, docs, polish | A first-time visitor sees an attack, the detection and the hardened block |
 
 Every sprint also updates: README, wiring/pin table, BOM, security notes, changelog,
 decisions log, and the verified/unverified list.
+
+**Current status:** Sprint 0. Done: concept and framework decisions, approved plan, repo and
+issue tracking, README/plan published, bring-up check, and the existing CTF running (owner-observed).
+Open: documenting and test-verifying the existing build, and deciding repo visibility and flag
+handling (this repo is public).
 
 ## Current build (Sprint 0 baseline)
 *Described from the owner's notes; being verified against the code in Sprint 0.*
