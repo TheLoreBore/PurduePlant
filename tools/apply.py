@@ -133,6 +133,7 @@ def render_tracker(n, nums, state):
     return "\n".join([
         f"<!-- plant-key: sprint-{n} -->",
         f"**Milestone:** {m['title']} (sprints {sib})  |  **Label:** `sprint:{n}`", "",
+        "## User story", "As a **%s**, I want %s, so that %s." % P.SPRINT_STORIES[n], "",
         "## Goal", s["goal"], "",
         "## Tasks", tasks_section(n, nums, state), "",
         "## Exit criteria (sprint gate)", bullet(s["exit"] + [f"Owner approves moving to {'Sprint ' + str(n + 1) if n < 7 else 'release'}"]), "",

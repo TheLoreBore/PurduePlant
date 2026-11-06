@@ -489,3 +489,15 @@ for _t in TASKS:
     if _t["key"] in COMPLETED_LATER:
         _t["done"] = True
         _t["note"] = COMPLETED_LATER[_t["key"]]
+
+# One user story per sprint tracker (shown above the sprint goal).
+SPRINT_STORIES = {
+    0: ("lab owner", "the existing ESP32 CTF documented and tested", "another person can rebuild and run it from the docs alone"),
+    1: ("OT security engineer", "a plant network and server with a firewall boundary", "the attacker seat can reach only the hosts and ports I intend"),
+    2: ("student", "a field node whose sensor readings reach a live dashboard", "I can discover and browse the plant's data and see a bad sensor flagged as a fault"),
+    3: ("assessor", "an L2 gateway with a writable point reachable from the wrong level", "players can classify points and find the over-exposure"),
+    4: ("visiting sponsor", "a physical process with a safety interlock", "I can see a spoofed value change the room and the safe state trip"),
+    5: ("defender", "an IDS face and a live scoreboard", "every attack raises an alert and progress is visible"),
+    6: ("OT security engineer", "a hardened build next to the vulnerable one", "I can show which control stops which attack"),
+    7: ("lab staff", "a polished demo and complete documentation", "a first-time visitor can follow the story without help"),
+}
